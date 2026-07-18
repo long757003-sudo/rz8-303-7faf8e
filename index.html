@@ -8,13 +8,14 @@
 <title>奥园七期装修进度</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;background:#faf9f7;color:#1c1917;line-height:1.7;-webkit-font-smoothing:antialiased}
 .wrap{max-width:640px;margin:0 auto;padding:24px 16px 40px}
 h1{font-size:22px;font-weight:700}
 .meta{color:#78716c;font-size:13px;margin-top:4px}
 .notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px 12px;font-size:13px;margin-top:14px;line-height:1.6}
-section{background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:18px 16px;margin-top:14px}
+section{background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:18px 16px;margin-top:14px;scroll-margin-top:60px}
 h2{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .h2-note{font-size:12px;font-weight:400;color:#a8a29e}
 .cnt{font-size:12px;font-weight:600;color:#c2410c;background:#fff7ed;border-radius:999px;padding:1px 8px}
@@ -157,6 +158,12 @@ section.internal{border-color:#fca5a5;background:#fef2f2}
 .fin-sstate.due{color:#b45309;background:#fffbeb}
 .fin-sstage{flex:1;color:#57534e}
 .fin-samt{flex:none;font-weight:600;font-variant-numeric:tabular-nums;color:#44403c}
+/* ===== 目录导航(吸顶,横向可滑,点击跳转,滚动高亮当前模块)===== */
+.toc{position:sticky;top:0;z-index:30;display:flex;gap:8px;overflow-x:auto;margin:14px -16px 0;padding:9px 16px;background:rgba(244,238,225,.92);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid #e7dcc4;scrollbar-width:none}
+.toc::-webkit-scrollbar{display:none}
+.toc a{flex:none;font-size:13px;line-height:1.4;color:#6b6152;background:#fffdf7;border:1px solid #e7dcc4;border-radius:999px;padding:4px 13px;text-decoration:none;white-space:nowrap;transition:background .15s,color .15s,border-color .15s}
+.toc a:active{background:#f6e7cf;color:#b45309}
+.toc a.on{background:#0f766e;border-color:#0f766e;color:#fff;font-weight:600}
 footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-height:1.8}
 @media (max-width:420px){
   .life-grid{grid-template-columns:1fr}
@@ -174,8 +181,9 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   <div class="notice">装修计划会随实际情况调整,以本页最新内容为准;每次调整都记进「变更记录」。</div>
 </header>
 
+<nav class="toc" aria-label="目录"><a href="#sec-now">现在</a><a href="#sec-life">全生命周期</a><a href="#sec-cost">花费</a><a href="#sec-plan">计划</a><a href="#sec-drawings">图纸</a><a href="#sec-history">历程</a><a href="#sec-parties">参与方</a></nav>
 
-<section>
+<section id="sec-now">
   <h2>现在 / 下一步</h2>
   <div class="hero-line"><b>0/10</b> 个阶段完成 · 进行中:设计与方案定稿</div>
   <div class="bar"><i class="doing"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i></div>
@@ -199,7 +207,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   </div></div>
 </section>
 
-<section>
+<section id="sec-life">
   <h2>项目全生命周期<span class="h2-note">事实、判断、待定节点分开记录</span></h2>
   <div class="life-grid">
     <div class="life-card ">
@@ -312,7 +320,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   </ul>
 </section>
 
-<section><h2>花费<span class="h2-note">金额实记;商家、品牌、人名已用泛称代替</span></h2>
+<section id="sec-cost"><h2>花费<span class="h2-note">金额实记;商家、品牌、人名已用泛称代替</span></h2>
   <div class="fin-sum">
   <div class="fin-sum-row"><span>回款合计</span><span class="income">+¥5,585</span></div>
   <div class="fin-sum-row"><span>已定支出</span><span>¥22,900</span></div>
@@ -354,7 +362,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   <div class="fin-trackers">另在维护:材料购买清单、人工费用清单、预算与付款节点(随施工逐项补齐)</div>
 </section>
 
-<section>
+<section id="sec-plan">
   <h2>计划<span class="h2-note">当前阶段高亮;时间随实际调整,调整记进「历程」</span></h2>
   <ul class="tl">
     <li class="st-doing"><span class="dot"></span>
@@ -400,7 +408,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   </ul>
 </section>
 
-<section>
+<section id="sec-drawings">
   <h2>图纸资料<span class="h2-note">原始图纸、设计图、效果图、点位图逐步补齐</span></h2>
   <div class="drawing-grid">
   <div class="drawing">
@@ -478,7 +486,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   </div>
 </section>
 
-<section>
+<section id="sec-history">
   <h2>历程<span class="h2-note">变更带原因,动态是流水</span></h2>
   <div class="subblock"><div class="subblock-t">方案变更<span class="cnt">2</span></div>
   <div class="chg"><div class="chg-date">2026-06-30</div><div class="chg-what">选商方式调整:设计单独签约设计工作室,施工方等方案出来再定(原计划设计施工打包)</div><div class="chg-why">为什么:先把设计定下来,拿定稿方案去要施工报价,各家报价在同一份图纸上才有可比性,再据此选施工方。</div></div>
@@ -497,7 +505,7 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
   <div class="upd"><div class="upd-date">2026-06-01</div><div class="upd-body"><p>装修项目启动(5 月 31 日签的购房合同)。</p></div></div></div></div>
 </section>
 
-<section>
+<section id="sec-parties">
   <h2>参与方</h2>
   <div class="party"><span class="party-role">业主</span><span class="party-who">龙先生一家</span><span class="party-duty">拍板、验收、维护本页</span></div><div class="party"><span class="party-role">设计师</span><span class="party-who">设计工作室(已签约)</span><span class="party-duty">量房、平面方案、图纸</span></div><div class="party"><span class="party-role">施工方</span><span class="party-who">待定</span><span class="party-duty">设计方案定稿后比选</span></div>
 </section>
@@ -508,5 +516,23 @@ footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-heigh
 </details>
 <footer>有问题直接在微信群里说<br>本页更新到 2026-07-18</footer>
 </div>
+<script>
+/* 目录滚动定位:高亮当前所在模块并把该目录项滑到可见处;不支持时保持纯锚点跳转 */
+(function(){
+  var nav=document.querySelector('.toc'); if(!nav||!('IntersectionObserver' in window))return;
+  var links=[].slice.call(nav.querySelectorAll('a')), map={};
+  links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+  var secs=links.map(function(a){return document.getElementById(a.getAttribute('href').slice(1));}).filter(Boolean);
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var a=map[e.target.id]; if(!a)return;
+      links.forEach(function(x){x.classList.remove('on');}); a.classList.add('on');
+      a.scrollIntoView({inline:'center',block:'nearest'});
+    });
+  },{rootMargin:'-45% 0px -50% 0px',threshold:0});
+  secs.forEach(function(s){io.observe(s);});
+})();
+</script>
 </body>
 </html>
