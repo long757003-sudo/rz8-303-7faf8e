@@ -1,0 +1,6 @@
+# 红线：内部产物 / 含金额实名的数据，永不进本公开仓
+internal.html
+*internal*
+data.json
+data.internal.json
+.DS_Store

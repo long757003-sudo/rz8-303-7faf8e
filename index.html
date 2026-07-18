@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>奥园七期装修进度</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Noto Sans SC","Microsoft YaHei",sans-serif;background:#faf9f7;color:#1c1917;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:640px;margin:0 auto;padding:24px 16px 40px}
+h1{font-size:22px;font-weight:700}
+.meta{color:#78716c;font-size:13px;margin-top:4px}
+.notice{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:10px;padding:10px 12px;font-size:13px;margin-top:14px;line-height:1.6}
+section{background:#fff;border:1px solid #e7e5e4;border-radius:14px;padding:18px 16px;margin-top:14px}
+h2{font-size:16px;font-weight:700;margin-bottom:12px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.h2-note{font-size:12px;font-weight:400;color:#a8a29e}
+.cnt{font-size:12px;font-weight:600;color:#c2410c;background:#fff7ed;border-radius:999px;padding:1px 8px}
+.hero-line{font-size:14px;color:#44403c}
+.hero-line b{font-size:16px;color:#c2410c}
+.bar{display:flex;gap:3px;margin:10px 0 12px}
+.bar i{flex:1;height:6px;border-radius:3px;background:#e7e5e4}
+.bar i.done{background:#16a34a}
+.bar i.doing{background:#c2410c}
+.hero-sum{font-size:14px;color:#44403c}
+.next{margin-top:12px;background:#faf9f7;border-radius:10px;padding:10px 12px}
+.next-t{font-size:12px;font-weight:600;color:#78716c;margin-bottom:4px}
+.next ol{padding-left:20px;font-size:14px}
+.next li{margin:2px 0}
+.life-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.life-card{border:1px solid #e7e5e4;border-radius:10px;padding:10px 12px;background:#fff}
+.life-card.end{border-color:#fed7aa;background:#fff7ed}
+.life-k{font-size:12px;color:#78716c}
+.life-v{font-size:15px;font-weight:700;color:#1c1917;margin-top:2px;font-variant-numeric:tabular-nums}
+.life-note{font-size:12px;color:#57534e;margin-top:4px;line-height:1.55}
+.life-judge{margin-top:12px;border-left:3px solid #0f766e;background:#f0fdfa;padding:9px 11px;font-size:13px;color:#134e4a;line-height:1.6}
+.life-nodes{list-style:none;margin-top:14px}
+.life-node{display:grid;grid-template-columns:78px 1fr;gap:10px;padding:11px 0;border-top:1px solid #f5f5f4}
+.life-node:first-child{border-top:none;padding-top:0}
+.node-date{font-size:12px;color:#78716c;font-variant-numeric:tabular-nums;padding-top:2px}
+.node-body{min-width:0}
+.node-head{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.node-title{font-size:14px;font-weight:600;color:#1c1917}
+.node-kind{flex:none;border-radius:999px;padding:1px 8px;font-size:11px;color:#57534e;background:#f5f5f4}
+.life-node.st-done .node-kind{color:#15803d;background:#f0fdf4}
+.life-node.st-doing .node-kind{color:#c2410c;background:#fff7ed}
+.node-desc{font-size:13px;color:#57534e;margin-top:3px}
+.tl{list-style:none}
+.tl li{position:relative;padding:0 0 16px 28px}
+.tl li::before{content:"";position:absolute;left:7px;top:20px;bottom:-2px;width:2px;background:#e7e5e4}
+.tl li:last-child{padding-bottom:2px}
+.tl li:last-child::before{display:none}
+.dot{position:absolute;left:0;top:4px;width:16px;height:16px;border-radius:50%;border:2px solid #d6d3d1;background:#fff}
+.st-done .dot{background:#16a34a;border-color:#16a34a}
+.st-done .dot::after{content:"";position:absolute;left:4px;top:1px;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.st-doing .dot{border-color:#c2410c}
+.st-doing .dot::after{content:"";position:absolute;left:3px;top:3px;width:6px;height:6px;border-radius:50%;background:#c2410c}
+.st-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.st-name{font-size:15px;font-weight:600}
+.st-todo .st-name{color:#78716c;font-weight:500}
+.chip{flex:none;font-size:12px;border-radius:999px;padding:1px 10px}
+.chip-done{color:#15803d;background:#f0fdf4}
+.chip-doing{color:#c2410c;background:#fff7ed;font-weight:600}
+.chip-todo{color:#a8a29e;background:#f5f5f4}
+.st-desc{font-size:13px;color:#78716c;margin-top:2px}
+.pend{border:1px solid #e7e5e4;border-radius:10px;padding:12px;margin-top:10px}
+.pend:first-of-type{margin-top:0}
+.pend-head{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.pend-item{font-size:14px;font-weight:600}
+.badge{flex:none;font-size:12px;color:#b45309;background:#fffbeb;border:1px solid #fde68a;border-radius:999px;padding:1px 10px}
+.pend-meta{font-size:12px;color:#78716c;margin-top:4px}
+.pend-note{font-size:13px;color:#57534e;margin-top:6px}
+.drawing-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.drawing{border:1px solid #e7e5e4;border-radius:10px;overflow:hidden;background:#fff}
+.drawing img{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;background:#faf9f7;border-bottom:1px solid #e7e5e4}
+.drawing-empty{height:180px;display:grid;place-items:center;background:#faf9f7;color:#a8a29e;font-size:14px;border-bottom:1px solid #e7e5e4}
+.drawing-info{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px 0}
+.drawing-title{font-size:14px;font-weight:600}
+.drawing .pend-note{padding:0 12px 12px}
+.tracker{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;border:1px solid #e7e5e4;border-radius:10px;padding:12px;margin-top:10px}
+.tracker:first-of-type{margin-top:0}
+.tracker-title{font-size:14px;font-weight:600}
+.tracker-meta{font-size:12px;color:#a8a29e;margin-top:2px}
+.tracker p{font-size:13px;color:#57534e;margin-top:6px}
+.public-list{padding-left:20px;font-size:14px;color:#44403c;margin-top:10px}
+.public-list li{margin:4px 0}
+.chg{border-left:3px solid #c2410c;padding:2px 0 2px 12px;margin-top:14px}
+.chg:first-of-type{margin-top:0}
+.chg-date{font-size:12px;color:#a8a29e}
+.chg-what{font-size:14px;font-weight:600;margin-top:2px}
+.chg-why{font-size:13px;color:#57534e;margin-top:4px}
+.upd{display:flex;gap:12px;padding:10px 0;border-top:1px solid #f5f5f4}
+.upd:first-child{border-top:none;padding-top:0}
+.upd-date{flex:none;width:74px;font-size:12px;color:#a8a29e;padding-top:3px}
+.upd-body{flex:1;font-size:14px;color:#44403c}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.photos img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;border:1px solid #e7e5e4}
+.party{display:flex;gap:10px;font-size:14px;padding:8px 0;border-top:1px solid #f5f5f4;align-items:baseline}
+.party:first-of-type{border-top:none;padding-top:0}
+.party-role{flex:none;width:64px;color:#78716c;font-size:13px}
+.party-who{font-weight:600}
+.party-duty{margin-left:auto;color:#a8a29e;font-size:12px;text-align:right}
+.empty{font-size:13px;color:#a8a29e}
+.subblock{margin-top:16px;padding-top:12px;border-top:1px solid #f0efed}
+.subblock-t{font-size:13px;font-weight:600;color:#78716c;margin-bottom:10px;display:flex;align-items:baseline;gap:6px}
+.fin-trackers{margin-top:14px;padding-top:10px;border-top:1px solid #f1dede;font-size:12px;color:#78716c}
+.tracker-mini{display:flex;justify-content:space-between;gap:10px;padding:3px 0}
+.tracker-mini .tracker-meta{margin-top:0}
+details.about{margin-top:20px}
+details.about summary{cursor:pointer;color:#78716c;font-size:12px;list-style:none}
+details.about summary::-webkit-details-marker{display:none}
+details.about summary::before{content:"▸ ";color:#a8a29e}
+details.about[open] summary::before{content:"▾ "}
+details.about>p{font-size:12px;color:#78716c;margin-top:8px}
+.int-banner{background:#7f1d1d;color:#fff;border-radius:10px;padding:10px 12px;font-size:13px;font-weight:600;margin-top:14px;line-height:1.5}
+/* ===== 视觉主题:纸感设计手记(暖米底 + 衬线标题 + 赤陶/墨绿)===== */
+body{background:#f4eee1;color:#2b2620}
+h1,h2{font-family:Georgia,"Songti SC","STSong","Noto Serif SC",serif;letter-spacing:.3px}
+.life-v,.node-date,.upd-date,.chg-date,.meta{font-family:Georgia,"Songti SC",serif}
+section{background:#fffdf7;border-color:#e7dcc4;border-radius:5px}
+.notice{background:#fbf3e2;border-color:#e7d3a4;color:#7c5a15}
+.hero-line b{color:#b45309}.cnt{color:#b45309;background:#f6e7cf}
+.bar i{background:#e7dcc4}.bar i.done{background:#0f766e}.bar i.doing{background:#b45309}
+.next{background:#f7f1e4}
+.life-card{background:#fbf7ec;border-color:#e7dcc4}.life-card.end{background:#f8efd7;border-color:#e6c98c}
+.life-judge{background:#eef6f3;border-left-color:#0f766e;color:#134e4a}
+.node-kind{background:#efe7d5;color:#6b6152}.life-node.st-done .node-kind{color:#0f766e;background:#e6f2ee}.life-node.st-doing .node-kind{color:#b45309;background:#f6e7cf}
+.life-node,.upd,.party,.subblock{border-color:#eadfc8}
+.dot{background:#fffdf7;border-color:#cabfa6}.st-done .dot{background:#0f766e;border-color:#0f766e}.st-doing .dot{border-color:#b45309}.st-doing .dot::after{background:#b45309}
+.tl li::before{background:#e7dcc4}
+.chip-done{color:#0f766e;background:#e6f2ee}.chip-doing{color:#b45309;background:#f6e7cf}.chip-todo{color:#8a8172;background:#efeadd}
+.badge{color:#b45309;background:#fbf3e2;border-color:#e7d3a4}
+.fin-sum{background:#fbf7ec;border-color:#ecdcbf}.fin-amt.income,.fin-sum-row .income{color:#0f766e}
+.chg{border-left-color:#b45309}
+section.internal{border-color:#fca5a5;background:#fef2f2}
+.fin-lead{font-size:13px;color:#57534e;margin-bottom:4px}
+.fin-sum{margin:10px 0 4px;background:#fff;border:1px solid #f1dede;border-radius:10px;padding:10px 12px}
+.fin-sum-row{display:flex;justify-content:space-between;font-size:13px;padding:2px 0;font-variant-numeric:tabular-nums}
+.fin-sum-row span:last-child{font-weight:700}
+.fin-sum-row.sub{font-size:12px;color:#78716c;padding-left:8px}
+.fin-sum-row.sub span:last-child{font-weight:600}
+.fin-sum-row .income{color:#15803d}
+.fin-group{margin-top:14px}
+.fin-gt{font-size:12px;font-weight:600;color:#78716c;margin-bottom:4px}
+.fin-row{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:8px 0;border-top:1px solid #f1dede}
+.fin-row:first-of-type{border-top:none}
+.fin-item{font-size:14px;font-weight:600}
+.fin-note{font-size:12px;color:#78716c;margin-top:2px}
+.fin-amt{flex:none;font-size:14px;font-weight:700;color:#1c1917;font-variant-numeric:tabular-nums}
+.fin-amt.income{color:#15803d}
+.fin-sched{margin-top:6px;border-top:1px dashed #e7c9c9;padding-top:4px}
+.fin-srow{display:flex;align-items:baseline;gap:8px;font-size:12px;padding:2px 0}
+.fin-sstate{flex:none;font-size:11px;border-radius:999px;padding:0 7px;font-weight:600}
+.fin-sstate.paid{color:#15803d;background:#f0fdf4}
+.fin-sstate.due{color:#b45309;background:#fffbeb}
+.fin-sstage{flex:1;color:#57534e}
+.fin-samt{flex:none;font-weight:600;font-variant-numeric:tabular-nums;color:#44403c}
+footer{text-align:center;font-size:12px;color:#a8a29e;margin-top:24px;line-height:1.8}
+@media (max-width:420px){
+  .life-grid{grid-template-columns:1fr}
+  .life-node{grid-template-columns:1fr;gap:3px}
+  .node-head{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+<header>
+  <h1>奥园七期装修进度</h1>
+  <div class="meta">更新于 2026-07-07 · 业主维护</div>
+  <div class="notice">装修计划会随实际情况调整,以本页最新内容为准;每次调整都记进「变更记录」。</div>
+</header>
+
+
+<section>
+  <h2>现在 / 下一步</h2>
+  <div class="hero-line"><b>0/10</b> 个阶段完成 · 进行中:设计与方案定稿</div>
+  <div class="bar"><i class="doing"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i><i class="todo"></i></div>
+  <p class="hero-sum">设计合同已签(设计工作室),设计师已给出第一版图纸(原始结构、拆除、平面布置),正在看方案、提修改意见;施工方等平面定稿后结合施工报价再定。</p>
+  <div class="next"><div class="next-t">接下来</div><ol><li>对第一版拆除与平面布置图提修改意见,推进方案定稿</li><li>定稿后确认水电点位与全屋定制图</li><li>整理材料购买清单和人工费用清单,为报价比选做准备</li></ol></div>
+  <div class="subblock"><div class="subblock-t">待确认<span class="cnt">3</span></div>
+  <div class="pend">
+    <div class="pend-head"><span class="pend-item">阳台A能否封闭</span><span class="badge">待确认</span></div>
+    <div class="pend-meta">谁拍板:业主 + 物业</div>
+    <p class="pend-note">户型图里是虚线,疑似赠送面积;要物业书面确认能否封闭、是否涉及承重。</p>
+  </div>
+  <div class="pend">
+    <div class="pend-head"><span class="pend-item">选定施工方</span><span class="badge">等设计方案</span></div>
+    <div class="pend-meta">谁拍板:全家 · 时间:设计方案定稿后</div>
+    <p class="pend-note">设计已单独签约;方案定稿后拿各家施工报价比选,再定施工方。</p>
+  </div>
+  <div class="pend">
+    <div class="pend-head"><span class="pend-item">补齐图纸与费用清单</span><span class="badge">整理中</span></div>
+    <div class="pend-meta">谁拍板:业主 · 时间:第一篇对外内容发布前</div>
+    <p class="pend-note">原始户型图、拆除墙体图、平面布置图已上页(设计一版);水电点位图、材料购买清单、人工费用清单会随资料到位逐步补齐。</p>
+  </div></div>
+</section>
+
+<section>
+  <h2>项目全生命周期<span class="h2-note">事实、判断、待定节点分开记录</span></h2>
+  <div class="life-grid">
+    <div class="life-card ">
+    <div class="life-k">全生命周期起点</div>
+    <div class="life-v">2026-05-31</div>
+    <div class="life-note">签订购房合同,装修项目从房屋交接准备开始进入记录。</div>
+  </div>
+    <div class="life-card ">
+    <div class="life-k">装修项目启动</div>
+    <div class="life-v">2026-06-01</div>
+    <div class="life-note">开始围绕设计、施工方式、费用台账与资料归档推进。</div>
+  </div>
+    <div class="life-card ">
+    <div class="life-k">当前记录截点</div>
+    <div class="life-v">2026-07-07</div>
+    <div class="life-note">设计一版图纸已收到,正在方案审阅与修改意见整理。</div>
+  </div>
+    <div class="life-card end">
+    <div class="life-k">实际结束时间</div>
+    <div class="life-v">待确认</div>
+    <div class="life-note">尚未竣工,不预填具体日期;以竣工验收、开荒保洁、通风除醛并具备入住条件的当天作为准确结束时间。</div>
+  </div>
+  </div>
+  <div class="life-judge">2026-06-14 曾按整装路线判断工期约 90 天可控;2026-06-30 改为设计先行、施工后比选,因此 90 天只作为早期判断留痕,不作为当前承诺工期。</div>
+  <ul class="life-nodes">
+    <li class="life-node st-done">
+      <div class="node-date">2026-05-31</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">购房合同签订</span><span class="node-kind">事实</span></div>
+        <p class="node-desc">全生命周期记录从房屋取得与装修准备开始。</p>
+      </div>
+    </li>
+    <li class="life-node st-done">
+      <div class="node-date">2026-06-01</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">装修项目启动</span><span class="node-kind">事实</span></div>
+        <p class="node-desc">启动装修规划、资料整理和团队比选。</p>
+      </div>
+    </li>
+    <li class="life-node st-done">
+      <div class="node-date">2026-06-07</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">开始设计/装修方比选</span><span class="node-kind">事实</span></div>
+        <p class="node-desc">金山片区实地看三家设计/装修方。</p>
+      </div>
+    </li>
+    <li class="life-node st-done">
+      <div class="node-date">2026-06-14</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">阶段判断:走整装路线</span><span class="node-kind">判断</span></div>
+        <p class="node-desc">当时判断整装工期约 90 天、整体花费更可控。</p>
+      </div>
+    </li>
+    <li class="life-node st-done">
+      <div class="node-date">2026-06-30</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">阶段判断调整:设计先行</span><span class="node-kind">判断</span></div>
+        <p class="node-desc">设计单独签约设计工作室,施工方等方案出来后用同一套图纸比价。</p>
+      </div>
+    </li>
+    <li class="life-node st-done">
+      <div class="node-date">2026-07-03</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">进度页上线 + 方案审阅启动</span><span class="node-kind">事实</span></div>
+        <p class="node-desc">设计师已定,进度页开始作为对外记录入口。</p>
+      </div>
+    </li>
+    <li class="life-node st-doing">
+      <div class="node-date">2026-07-07</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">收到设计一版图纸</span><span class="node-kind">当前</span></div>
+        <p class="node-desc">原始结构、拆除、平面布置已上页,当前重点是提修改意见。</p>
+      </div>
+    </li>
+    <li class="life-node st-todo">
+      <div class="node-date">2026-07-10</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">房子解押后支付设计费二期</span><span class="node-kind">待发生</span></div>
+        <p class="node-desc">费用节点已记录,以实际付款为准更新。</p>
+      </div>
+    </li>
+    <li class="life-node st-todo">
+      <div class="node-date">待定</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">平面/水电/定制图纸定稿</span><span class="node-kind">关键节点</span></div>
+        <p class="node-desc">作为施工报价比选和后续开工的前置条件。</p>
+      </div>
+    </li>
+    <li class="life-node st-todo">
+      <div class="node-date">待定</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">选定施工方并确认开工日</span><span class="node-kind">关键判断</span></div>
+        <p class="node-desc">基于定稿方案比选施工报价、工期和责任边界。</p>
+      </div>
+    </li>
+    <li class="life-node st-todo">
+      <div class="node-date">待定</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">施工阶段验收</span><span class="node-kind">过程节点</span></div>
+        <p class="node-desc">拆改、水电、泥瓦、木作、油漆与安装逐项留痕。</p>
+      </div>
+    </li>
+    <li class="life-node st-todo">
+      <div class="node-date">待定</div>
+      <div class="node-body">
+        <div class="node-head"><span class="node-title">竣工验收与入住条件确认</span><span class="node-kind">结束定义</span></div>
+        <p class="node-desc">实际结束日期以后续竣工验收和具备入住条件当天为准。</p>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section><h2>花费<span class="h2-note">金额实记;商家、品牌、人名已用泛称代替</span></h2>
+  <div class="fin-sum">
+  <div class="fin-sum-row"><span>回款合计</span><span class="income">+¥2,600</span></div>
+  <div class="fin-sum-row"><span>已定支出</span><span>¥22,900</span></div>
+  <div class="fin-sum-row sub"><span>· 已付</span><span>¥2,500</span></div>
+  <div class="fin-sum-row sub"><span>· 待付</span><span>¥20,400</span></div>
+</div>
+  <div class="fin-group"><div class="fin-gt">回款 / 冲抵预算</div>
+  <div class="fin-row"><div><div class="fin-item">空调挂机(原房主留下)</div><div class="fin-note">2026-07-07</div></div><div class="fin-amt income">+¥2,000</div></div>
+  <div class="fin-row"><div><div class="fin-item">布沙发 + 3 个衣柜(原房主留下)</div><div class="fin-note">2026-07-06</div></div><div class="fin-amt income">+¥600</div></div></div>
+  <div class="fin-group"><div class="fin-gt">已定 / 已发生费用</div>
+  <div class="fin-row">
+    <div>
+      <div class="fin-item">设计费 · 设计工作室</div>
+      <div class="fin-note">计费:150 元/㎡ × 103㎡(实际 111㎡,按 103㎡ 计,少算 8㎡ ≈ 1200 元)</div>
+      
+      <div class="fin-note">已签约,分期付</div>
+      <div class="fin-sched"><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">一期定金</span><span class="fin-samt">¥2,000</span></div><div class="fin-srow"><span class="fin-sstate due">待付</span><span class="fin-sstage">二期 · 2026-07-10 房子解押后</span><span class="fin-samt">¥5,952.5</span></div><div class="fin-srow"><span class="fin-sstate due">待付</span><span class="fin-sstage">尾款 · 后续</span><span class="fin-samt">¥7,497.5</span></div></div>
+    </div>
+    <div class="fin-amt">¥15,450</div>
+  </div>
+  <div class="fin-row">
+    <div>
+      <div class="fin-item">拆除出渣 · 拆除队</div>
+      <div class="fin-note">计费:正常拆除 4000 + 铲墙 700 + 拆墙 1800(12墙 6.5㎡、24墙 13㎡)+ 拆飘窗 6.2 米 950</div>
+      
+      <div class="fin-note">已定价 · 若飘窗为混凝土,拆飘窗加收 950(届时总价 8400)</div>
+      <div class="fin-sched"><div class="fin-srow"><span class="fin-sstate paid">已付</span><span class="fin-sstage">定金</span><span class="fin-samt">¥500</span></div><div class="fin-srow"><span class="fin-sstate due">待付</span><span class="fin-sstage">余款</span><span class="fin-samt">¥6,950</span></div></div>
+    </div>
+    <div class="fin-amt">¥7,450</div>
+  </div></div>
+  <div class="fin-trackers">另在维护:材料购买清单、人工费用清单、预算与付款节点(随施工逐项补齐)</div>
+</section>
+
+<section>
+  <h2>计划<span class="h2-note">当前阶段高亮;时间随实际调整,调整记进「历程」</span></h2>
+  <ul class="tl">
+    <li class="st-doing"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">设计与方案定稿</span><span class="chip chip-doing">2026-06-30 起</span></div>
+      <p class="st-desc">量房、平面布局、水电点位图、全屋定制图</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">选定施工方并签约</span><span class="chip chip-todo">方案定稿后</span></div>
+      <p class="st-desc">设计方案定稿后,结合施工报价比选</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">拆改与垃圾清运</span><span class="chip chip-todo">待开工日</span></div>
+      
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">水电改造</span><span class="chip chip-todo">拆改验收后</span></div>
+      <p class="st-desc">封墙前拍照存档</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">泥瓦工程</span><span class="chip chip-todo">水电验收后</span></div>
+      <p class="st-desc">防水、闭水试验、贴砖、找平</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">木工与定制柜安装</span><span class="chip chip-todo">泥瓦后</span></div>
+      
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">油漆与墙面</span><span class="chip chip-todo">木作后</span></div>
+      
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">固定安装</span><span class="chip chip-todo">硬装收尾</span></div>
+      <p class="st-desc">橱柜、室内门、洁具、灯具、开关插座</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">软装进场</span><span class="chip chip-todo">安装后</span></div>
+      <p class="st-desc">家具、窗帘、家电</p>
+    </li>
+    <li class="st-todo"><span class="dot"></span>
+      <div class="st-head"><span class="st-name">保洁通风与入住</span><span class="chip chip-todo">终点待定</span></div>
+      <p class="st-desc">开荒保洁、通风除醛、竣工验收</p>
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>图纸资料<span class="h2-note">原始图纸、设计图、点位图逐步补齐</span></h2>
+  <div class="drawing-grid">
+  <div class="drawing">
+    <img src="assets/原始户型图.jpg" alt="原始户型图" loading="lazy">
+    <div class="drawing-info">
+      <div class="drawing-title">原始户型图</div>
+      <span class="badge">已有</span>
+    </div>
+    <p class="pend-note">改造前的彩色户型图,标了各房间名称与面积(客厅 33.6㎡、卧室 A 14.1㎡、卧室 B 10.6㎡、卧室 C 9.5㎡ 等);可编辑描线版后续再补。</p>
+  </div>
+  <div class="drawing">
+    <img src="assets/拆除墙体图.png" alt="拆除墙体图" loading="lazy">
+    <div class="drawing-info">
+      <div class="drawing-title">拆除墙体图</div>
+      <span class="badge">设计一版</span>
+    </div>
+    <p class="pend-note">设计师第一版拆改方案,阴影部分为要拆除的墙体。图上门牌、公司联系方式已裁掉。</p>
+  </div>
+  <div class="drawing">
+    <img src="assets/平面布置图.png" alt="平面布置图" loading="lazy">
+    <div class="drawing-info">
+      <div class="drawing-title">平面布置图</div>
+      <span class="badge">设计一版</span>
+    </div>
+    <p class="pend-note">设计师第一版平面布置:主卧、长辈房、儿童房、多功能房、客餐厅、厨房、双卫与生活阳台的家具动线;带尺寸标注的版本留内部。</p>
+  </div>
+  <div class="drawing">
+    <div class="drawing-empty">待补图纸</div>
+    <div class="drawing-info">
+      <div class="drawing-title">水电点位图</div>
+      <span class="badge">待补</span>
+    </div>
+    <p class="pend-note">平面方案定稿后补;封墙前照片会和点位图一起存档。</p>
+  </div>
+  </div>
+</section>
+
+<section>
+  <h2>历程<span class="h2-note">变更带原因,动态是流水</span></h2>
+  <div class="subblock"><div class="subblock-t">方案变更<span class="cnt">2</span></div>
+  <div class="chg"><div class="chg-date">2026-06-30</div><div class="chg-what">选商方式调整:设计单独签约设计工作室,施工方等方案出来再定(原计划设计施工打包)</div><div class="chg-why">为什么:先把设计定下来,拿定稿方案去要施工报价,各家报价在同一份图纸上才有可比性,再据此选施工方。</div></div>
+  <div class="chg"><div class="chg-date">2026-06-14</div><div class="chg-what">装修方式定调:走装修公司整装,放弃独立设计师路线</div><div class="chg-why">为什么:全家沟通后定的:整装工期可控(约 90 天)、整体花费更实惠;独立设计师更称心但工期长、总价压不住。</div></div></div>
+  <div class="subblock"><div class="subblock-t">动态</div><div class="feed">
+  <div class="upd"><div class="upd-date">2026-07-07</div><div class="upd-body"><p>收到设计师第一版图纸(原始结构、拆除、平面布置),已放到「图纸资料」区;正在看方案、准备提修改意见。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-07-04</div><div class="upd-body"><p>开始整理原始图纸、材料购买清单、人工费用清单和社交平台同步记录;后续会把方案变化和选择理由一起留痕。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-07-03</div><div class="upd-body"><p>设计师定了(已签的设计工作室);今晚看平面方案。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-07-03</div><div class="upd-body"><p>这个进度页上线,之后计划和进展都在这里看。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-06-30</div><div class="upd-body"><p>和设计工作室签订设计合同,预约上门量房。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-06-14</div><div class="upd-body"><p>又实地考察了两家装修公司;当天全家定调走整装路线。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-06-10</div><div class="upd-body"><p>考察一家整装公司和一家设计工作室。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-06-07</div><div class="upd-body"><p>金山片区实地看了三家设计/装修方,开始比选。</p></div></div>
+  <div class="upd"><div class="upd-date">2026-06-01</div><div class="upd-body"><p>装修项目启动(5 月 31 日签的购房合同)。</p></div></div></div></div>
+</section>
+
+<section>
+  <h2>参与方</h2>
+  <div class="party"><span class="party-role">业主</span><span class="party-who">龙先生一家</span><span class="party-duty">拍板、验收、维护本页</span></div><div class="party"><span class="party-role">设计师</span><span class="party-who">设计工作室(已签约)</span><span class="party-duty">量房、平面方案、图纸</span></div><div class="party"><span class="party-role">施工方</span><span class="party-who">待定</span><span class="party-duty">设计方案定稿后比选</span></div>
+</section>
+
+<details class="about"><summary>关于这个页面</summary>
+  <p>这个页面会同步记录装修过程里的方案变化、材料选择、人工费用口径和现场反馈。社交平台上收到的有效建议会回流到项目记录里。</p>
+  <ul class="public-list"><li>先展示问题和选择理由,再展示结果。</li><li>花费明细和金额都公开,只把商家、品牌、人名换成泛称。</li><li>网友建议会进入评论回流表,有用的再变成待办或决策记录。</li></ul>
+</details>
+<footer>有问题直接在微信群里说<br>本页更新到 2026-07-07</footer>
+</div>
+</body>
+</html>
